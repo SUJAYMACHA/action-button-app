@@ -3,7 +3,7 @@
 A modern web application with authentication built using React, Vite, and PostgreSQL.
 
 ## Features
-- Modern UI with neon glow effects
+- Modern UI 
 - User authentication (login/register)
 - Secure password handling
 - PostgreSQL database integration (pre-configured and ready to use)
