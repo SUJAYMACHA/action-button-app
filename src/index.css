@@ -1,0 +1,115 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 98%;
+    
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 98%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 217 91% 60%;
+    
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border selection:bg-accent/10 selection:text-accent;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-image: radial-gradient(circle at center, rgba(59, 130, 246, 0.1) 0, rgba(0, 0, 0, 0) 70%);
+    min-height: 100vh;
+  }
+
+  #root {
+    @apply min-h-screen;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply backdrop-blur-xl bg-black/20 border border-white/10 shadow-glass;
+  }
+  
+  .glass-card {
+    @apply glass rounded-xl transition-all duration-300 hover:bg-black/30;
+  }
+  
+  .glass-input {
+    @apply glass bg-black/30 rounded-lg border-white/10 focus:border-accent/50 focus:bg-black/40 transition-all duration-300;
+  }
+
+  .neon-glow {
+    @apply relative;
+  }
+  
+  .neon-glow::before {
+    @apply content-[''] absolute inset-0 rounded-xl blur opacity-50 transition-opacity duration-300;
+  }
+  
+  .neon-blue::before {
+    @apply bg-neon-blue;
+  }
+  
+  .neon-pink::before {
+    @apply bg-neon-pink;
+  }
+  
+  .neon-green::before {
+    @apply bg-neon-green;
+  }
+  
+  .neon-yellow::before {
+    @apply bg-neon-yellow;
+  }
+  
+  .neon-purple::before {
+    @apply bg-neon-purple;
+  }
+  
+  .text-outline {
+    text-shadow: 0 0 1px theme('colors.neon.blue'), 0 0 2px rgba(0, 0, 0, 0.8);
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 10px currentColor;
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.7s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
